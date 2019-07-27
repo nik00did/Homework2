@@ -543,4 +543,143 @@ describe('Homework2', () => {
             });
         });
     });
+    describe('getFactorial', () => {
+        const testData = [
+
+            {
+                number: 0,
+                expected: 0
+            },
+            {
+                number: 1,
+                expected: 1
+            },
+            {
+                number: 2,
+                expected: 2
+            },
+            {
+                number: 3,
+                expected: 6
+            },
+            {
+                number: 4,
+                expected: 24
+            },
+            {
+                number: 5,
+                expected: 120
+            },
+            {
+                number: 6,
+                expected: 720
+            },
+            {
+                number: 7,
+                expected: 5040
+            },
+            {
+                number: 8,
+                expected: 40320
+            },
+            {
+                number: 9,
+                expected: 362880
+            },
+            {
+                number: 10,
+                expected: 3628800
+            }
+        ];
+
+        testData.forEach(data => {
+            const {number, expected} = data;
+
+            const actual = getFactorial(number);
+
+            it(`Should return ${expected} when number = ${number}`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+    describe('getTheSumOfDigits', () => {
+        const testData = [
+            {
+                number: 1234,
+                expected: 10
+            },
+            {
+                number: 4321,
+                expected: 10
+            },
+            {
+                number: 123,
+                expected: 6
+            },
+            {
+                number: 0,
+                expected: 0
+            },
+            {
+                number: 1024,
+                expected: 7
+            },
+            {
+                number: 987654321,
+                expected: 45
+            }
+        ];
+
+        testData.forEach(data => {
+            const {number, expected} = data;
+
+            const actual = getTheSumOfDigits(number);
+
+            it(`Should return ${expected} when number = ${number}`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+    describe('reverseNumber', () => {
+        const testData = [
+            {
+                number: 1234,
+                expected: 4321
+            },
+            {
+                number: 1000,
+                expected: 1
+            },
+            {
+                number: 987654321,
+                expected: 123456789
+            },
+            {
+                number: 0,
+                expected: 0
+            },
+            {
+                number: 8,
+                expected: 8
+            },
+            {
+                number: 56000,
+                expected: 65
+            },
+            {
+                number: 103450,
+                expected: 54301
+            }
+        ];
+
+        testData.forEach(data => {
+            const {number, expected} = data;
+
+            const actual = reverseNumber(number);
+
+            it(`Should return ${expected} when number = ${number}`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
 });

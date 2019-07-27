@@ -60,7 +60,7 @@ const getMarkByRating = rating => {
     } else if (rating >= 90 && rating <= 100) {
         mark = "A";
     } else {
-        throw new Error("Invalid given rating!");
+        throw new Error ("Invalid given rating!");
     }
 
     return mark;
@@ -74,8 +74,8 @@ const isSimple = number => {
         return false;
     }
 
-    for(let  i = 2; i < number / 2; i++) {
-        if(number % i === 0){
+    for (let  i = 2; i < number / 2; i++) {
+        if (number % i === 0){
             return false;
         }
     }
@@ -95,8 +95,8 @@ const getSqrtSequentialSelection = number => {
 
     let temp;
 
-    for(let i = 0; i <= number; i++){
-        if(number - i * i < count && i * i - number < count){
+    for (let i = 0; i <= number; i++){
+        if (number - i * i < count && i * i - number < count){
             count = number - i * i;
             temp = i;
         }
@@ -122,7 +122,7 @@ const getSqrtBinarySearch = number => {
     do {
         item = (left + right + (left + right) % 2) / 2;
 
-        if(m ** 2 > number) {
+        if (item ** 2 > number) {
             right = item;
         }
         else {
@@ -133,35 +133,51 @@ const getSqrtBinarySearch = number => {
 
     return number - left ** 2 > right ** 2 - number ? right : left;
 };
-//----------------------------------------------------------------------------------------------------------
-                                  //TO BE CONTINUED
-//----------------------------------------------------------------------------------------------------------
-//4
+
 const getFactorial = number => {
-    for(let i=number-1; i>0; i--) number*=i;
-    return number;
-};
-//5
-const sumOfNumeral = n => {
-    let sum=0;
-    while(n>=1){
-        sum+=n%10;
-        n=(n-n%10)/10;
+    let result = number;
+
+    for (let i = number - 1; i > 0; i--) {
+        result *= i;
     }
+
+    return result;
+};
+
+const getTheSumOfDigits = number => {
+    let sum = 0;
+
+    while (number >= 1) {
+        sum += number % 10;
+        number = (number - number % 10) / 10;
+    }
+
     return sum;
-}
-//6
+};
+
 const reverseNumber = number => {
-    let newNum=0;
+    let newNum = 0;
+
     let power;
-    do{
-        power=1;
-        for(let t=number/10;t>=1;t=t/10) power*=10;
-        newNum+=number%10*power;
-        number=(number-number%10)/10;
-    }while(number>=1);
+
+    do {
+        power = 1;
+
+        for (let t = number / 10;t >= 1; t /= 10) {
+            power *= 10;
+        }
+
+        newNum += number % 10 * power;
+        number = (number - number % 10) / 10;
+
+    } while (number >= 1);
+
     return newNum;
-}
+};
+//----------------------------------------------------------------------------------------------------------
+                                            //TO BE CONTINUED
+//----------------------------------------------------------------------------------------------------------
+
 //array
 //1
 const findMinElem = array => {
