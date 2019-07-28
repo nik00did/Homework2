@@ -95,11 +95,13 @@ const getSqrtSequentialSelection = number => {
 
     let temp;
 
-    for (let i = 0; i <= number; i++){
-        if (number - i * i < count && i * i - number < count){
+    for (let i = 0; i <= number; i++) {
+
+        if (number - i * i < count && i * i - number < count) {
             count = number - i * i;
             temp = i;
         }
+
     }
 
     return temp;
@@ -177,16 +179,18 @@ const reverseNumber = number => {
 
 const findMinElemArray = array => {
 
-    if (array === undefined || ! array.length)  {
+    if (array === undefined || !array.length)  {
         return null;
     }
 
     let min = array[0];
 
     for (let i = 1; i < array.length; i++) {
+
         if (array[i] < min) {
             min = array[i];
         }
+
     }
 
     return min;
@@ -194,7 +198,7 @@ const findMinElemArray = array => {
 
 const findMaxElemArray = array => {
 
-    if (array === undefined || ! array.length)  {
+    if (array === undefined || !array.length)  {
         return null;
     }
 
@@ -211,7 +215,7 @@ const findMaxElemArray = array => {
 
 const findIndexOfMinElemArray = array => {
 
-    if (array === undefined || ! array.length)  {
+    if (array === undefined || !array.length)  {
         return null;
     }
 
@@ -220,10 +224,12 @@ const findIndexOfMinElemArray = array => {
     let minIndex = 0;
 
     for (let i = 1; i < array.length; i++) {
+
         if (array[i] < min) {
             min = array[i];
             minIndex = i;
         }
+
     }
 
     return minIndex;
@@ -231,7 +237,7 @@ const findIndexOfMinElemArray = array => {
 
 const findIndexOfMaxElemArray = array => {
 
-    if (array === undefined || ! array.length)  {
+    if (array === undefined || !array.length)  {
         return null;
     }
 
@@ -240,10 +246,12 @@ const findIndexOfMaxElemArray = array => {
     let maxIndex = 0;
 
     for (let i = 1;i <array.length; i++) {
+
         if (array[i] > max) {
             max = array[i];
             maxIndex = i;
         }
+
     }
 
     return maxIndex;
@@ -251,7 +259,7 @@ const findIndexOfMaxElemArray = array => {
 
 const sumOddElemArray = array => {
 
-    if (array === undefined || ! array.length || array.length<2) {
+    if (array === undefined || !array.length || array.length<2) {
         return null;
     }
 
@@ -266,7 +274,7 @@ const sumOddElemArray = array => {
 
 const reverseArray = array => {
 
-    if (array === undefined || ! array.length) {
+    if (array === undefined || !array.length) {
         return null;
     }
 
@@ -281,7 +289,7 @@ const reverseArray = array => {
 
 const amountOddElemArray = array => {
 
-    if (array === undefined || ! array.length || array.length<2) {
+    if (array === undefined || !array.length || array.length<2) {
         return null;
     }
 
@@ -296,7 +304,7 @@ const amountOddElemArray = array => {
 
 const swapHalfArray = array => {
 
-    if (array === undefined || ! array.length) {
+    if (array === undefined || !array.length) {
         return null;
     }
 
@@ -311,7 +319,7 @@ const swapHalfArray = array => {
 
 const arrayBubbleSort = array => {
 
-    if (array === undefined || ! array.length) {
+    if (array === undefined || !array.length) {
         return null;
     }
 
@@ -330,7 +338,7 @@ const arrayBubbleSort = array => {
 //descending
 const arrayInsertSort = array => {
 
-    if (array === undefined || ! array.length) {
+    if (array === undefined || !array.length) {
         return null;
     }
 
@@ -348,206 +356,356 @@ const arrayInsertSort = array => {
 
     return array;
 };
-//----------------------------------------------------------------------------------------------------------
-//                                      TO BE CONTINUED
-//----------------------------------------------------------------------------------------------------------
-//10
-//quick sort--------------------------------------------------------------
+
 const part = (array, left, right) => {
-    let item=array[(right+left - (right+left)%2)/2];
-    let i=left;
-    let j=right;
-    while (i<=j) {
-        while (array[i]>item) i++;
-        while (array[j]<item) j--;
-        if (i<=j) {
-            let temp=array[i];
-            array[i]=array[j];
-            array[j]=temp;
+    let item = array[(right + left - (right + left) % 2) / 2];
+
+    let i = left;
+
+    let j = right;
+
+    while (i <= j) {
+
+        while (array[i] > item) {
+            i++;
+        }
+
+        while (array[j] < item) {
+            j--;
+        }
+
+        if (i <= j) {
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
             i++;
             j--;
         }
+
     }
+
     return i;
 };
 const arrayQuickSort = (array, left, right) => {
-    left=typeof left!="number"?0:left;
-    right=typeof right!="number"?array.length-1:right;
+    left = typeof left !== "number" ? 0 : left;
+
+    right = typeof right !== "number" ? array.length - 1 : right;
+
     let index;
-    if (array.length>1) {
+
+    if (array.length > 1) {
         index = part(array, left, right);
-        if (left<index-1) arrayQuickSort(array, left, index-1)
-        if (index<right) arrayQuickSort(array, index, right);
+
+        if (left < index - 1) {
+            arrayQuickSort(array, left, index - 1);
+        }
+
+        if (index < right) {
+            arrayQuickSort(array, index, right);
+        }
     }
+
     return array;
 };
-//--------------------------------------------------------------------------
 
 const arrayShellSort = array => {
-    let step=(array.length-array.length%2)/2;
-    while (step>=1) {
-        for (let i=step; i<array.length; i++) {
-            const current=array[i];
-            let j=i;
-            while (j>0 && array[j-step]<current) {
-                array[j]=array[j-step];
-                j-=step;
+    let step = (array.length - array.length % 2) / 2;
+
+    while (step >= 1) {
+
+        for (let i = step; i < array.length; i++) {
+            const current = array[i];
+
+            let j = i;
+
+            while (j > 0 && array[j - step] < current) {
+                array[j] = array[j - step];
+                j -= step;
             }
-            array[j]=current;
+
+            array[j] = current;
         }
-        step=(step-step%2)/2;
+
+        step = (step - step % 2) / 2;
     }
+
     return array;
 };
-//heap sort*********************************************************************
+
 let len;
+
 const arrayHeapSort = array => {
-    len=array.length;
-    for (let i=(len-len%2)/2; i>=0; i-=1) heapBranch(array, i);
-    for (i=len-1; i>=0; i--) {
-        let temp=array[0];
-        array[0]=array[i];
-        array[i]=temp;
+    len = array.length;
+
+    for (let i = (len - len % 2) / 2; i >= 0; i -= 1) {
+        heapBranch(array, i);
+    }
+
+    for (let i = len - 1; i >= 0; i--) {
+        let temp = array[0];
+        array[0] = array[i];
+        array[i] = temp;
         len--;
+
         heapBranch(array, 0);
     }
-}
+
+};
+
 const heapBranch = (array, i) => {
-    let left=2*i+1;
-    let right=2*i+2;
-    let max=i;
-    if (left<len && array[left]>array[max]) max=left;
-    if (right<len && array[right]>array[max]) max=right;
-    if (max!==i) {
-        let temp=array[i];
-        array[i]=array[max];
-        array[max]=temp;
+    let left = 2 * i + 1;
+
+    let right = 2 * i + 2;
+
+    let max = i;
+
+    if (left < len && array[left] > array[max]) {
+        max = left;
+    }
+
+    if (right < len && array[right] > array[max]) {
+        max = right;
+    }
+
+    if (max !== i) {
+        let temp = array[i];
+        array[i] = array[max];
+        array[max] = temp;
+
         heapBranch(array, max);
     }
-}
-let arr=[3,6,2,545,75468,67,44,32,645,7,4,6,5346,457,5,734,53,-5,7749,-1,98,98,7,0,70,6,7,-4,-88,]
+};
+
+let arr = [3, 6, 2, 545, 75468, 67, 44, 32, 645, 7, 4, 6, 5346, 457, 5, 734, 53, -5, 7749, -1, 98, 98, 7, 7, -4, -88,];
+
 arrayHeapSort(arr);//using
-//*******************************************************************************
-//merge sort+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const sliceArray = (array,i,j) => {
+
+const sliceArray = (array, startIndex, finishIndex) => {
     let newArray;
-    if(!j) {
-        newArray=new Array(array.length-i);
-        for(let k=0;k<newArray.length;k++){
-            newArray[k]=array[k+i];
+
+    if(!finishIndex) {
+        newArray = new Array(array.length - startIndex);
+
+        for (let i = 0; i < newArray.length; i++) {
+            newArray[i] = array[i + startIndex];
         }
+
         return newArray;
     }
     else {
-        newArray=new Array(j-i);
-        for(let k=0,q=i;k<newArray.length,q<j;k++,q++){
-            newArray[k]=array[q];
+        newArray = new Array(finishIndex - startIndex);
+
+        for (let i = 0, j = startIndex; i < newArray.length, j < finishIndex; i++, j++) {
+            newArray[i] = array[j];
         }
+
         return newArray;
     }
 };
-const pushElem = ( array, elem) => {
-    let newArray=new Array(array.length+1);
-    for(let i=0;i<array.length;i++) newArray[i]=array[i];
-    newArray[newArray.length-1]=elem;
-    return newArray;
-}
-const merge = (first, second) => {
-    let array=[];
-    let i=j=0;
-    while (i<first.length && j<second.length) {
-        array=pushElem(array,(first[i]<second[j])?first[i++]:second[j++]);
+
+const pushElem = (array, elem) => {
+    let newArray = new Array(array.length + 1);
+
+    for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i];
     }
+
+    newArray[newArray.length - 1] = elem;
+
+    return newArray;
+};
+
+const merge = (first, second) => {
+    let array = [];
+
+    let i = 0, j = 0;
+
+    while (i < first.length && j < second.length) {
+        array = pushElem(array,(first[i] < second[j]) ? first[i++] : second[j++]);
+    }
+
     return [
         ...array,
-        ...sliceArray(first,i),
-        ...sliceArray(second,j)
+        ...sliceArray(first, i),
+        ...sliceArray(second, j)
     ];
-}
+};
+
 const arrayMergeSort = array => {
-    if (array.length<=1) return array;
-    const middle=(array.length-array.length%2)/2;
-    const arrLeft=sliceArray(array,0,middle);
-    const arrRight=sliceArray(array,middle);
+
+    if (array.length <= 1) {
+        return array;
+    }
+
+    const middle = (array.length - array.length % 2) / 2;
+
+    const arrLeft = sliceArray(array, 0, middle);
+
+    const arrRight = sliceArray(array, middle);
+
     return merge(arrayMergeSort(arrLeft), arrayMergeSort(arrRight));
 };
-//functions
-//1
+
 const getDayName = number => {
-    switch(number){
-        case 1: return "Monday";
-        case 2: return "Tuesday";
-        case 3: return "Wednesday";
-        case 4: return "Thursday";
-        case 5: return "Friday";
-        case 6: return "Saturday";
-        case 7: return "Sunday";
-        default: return "Wrong number!";
+
+    if (number < 1 || number > 7) {
+        return "Wrong number!";
     }
-}
-//2
-const getDistanceBetweenTwoPoints = (point1,point2) => ((point2.x-point1.x)**2+(point2.y-point1.y))**0.5;
+
+    const arrayDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+    return arrayDays[number+1];
+};
+
+const getDistanceBetweenTwoPoints = (startPoint, finishPoint) => {
+    return getSqrtBinarySearch((finishPoint.x - startPoint.x) ** 2 + (finishPoint.y - startPoint.y) ** 2);
+};
+
 //extra homework
-const twoMinElem = array => {
-    let min1=Infinity, min2=Infinity;
-    let indemMin1;
-    for(let i=0;i<array.length;i++){
-        if(array[i]<min1){
-            min1=array[i];
-            indexMin1=i;
-        }
+const getTwoMinElem = array => {
+
+    if (array === undefined || !array.length) {
+        return null;
     }
-    let newArray=new Array(array.length-1);
-    let i=0, j=0;
-    while(i<array.length){
-        if(i===indexMin1){
-            i++;
-            continue;
+
+    let min1 = array[0], min2 = array[0];
+
+    let indexMin1;
+
+    for (let i = 0; i <array.length; i++) {
+
+        if (array[i] < min1) {
+            min1 = array[i];
+            indexMin1 = i;
         }
-        else{
-            newArray[j]=array[i];
-            if(newArray[j]<min2) min2=newArray[j];
+
+    }
+
+    let newArray = new Array(array.length - 1);
+
+    let i = 0, j = 0;
+
+    while (i < array.length) {
+
+        if (i === indexMin1) {
+            i++;
+        }
+        else {
+            newArray[j] = array[i];
+
+            if (newArray[j] < min2) {
+                min2 = newArray[j];
+            }
+
             i++;
             j++;
         }
+
     }
-    for(let i=0;i<newArray.length;i++) if(newArray[i]<min2) min2=newArray[i];
-    return [min1,min2];
-}
-const averageArray = array => {
-    let average=0;
-    for(let i=0;i<array.length;i++) average+=array[i];
-    return average/2;
-}
-const maxRowMatrix = array => {
-    let newArray=new Array(array.length);
-    let max;
-    for(let i=0;i<array.length;i++){
-        max=-Infinity
-        for(let j=0;j<array[i].length;j++) if(array[j][i]>max) max=array[j][i];
-        newArray[i]=max;
+
+    for (let i = 0; i < newArray.length; i++) {
+
+        if (newArray[i] < min2) {
+            min2 = newArray[i];
+        }
+
     }
-    return newArray;
-}
-const positiveAndNegativeArrays = array => {
-    let positive=[], negative=[];
-    for(let i=0;i<array.length;i++){
-        if(array[i]>0) positive=pushElem(positive,array[i]);
-        else if(array[i]<0) negative=pushElem(negative,array[i]);
-    }
-    return [positive,negative];
+
+    return [min1, min2];
 };
-const countSimpleNumbers = array => {
-    let count=0;
-    let anotherCount=0;
-    for(let i=0;i<array.length;i++){
-        for(let j=2;j<array[i];j++){
-            if(array[i]%j===0){
+
+const getAverageArray = array => {
+
+    if (array === undefined || !array.length) {
+        return null;
+    }
+
+    let average = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        average += array[i];
+    }
+
+    return average / array.length;
+};
+
+const getMaxColumnMatrix = matrix => {
+
+    if (matrix === undefined || !matrix.length) {
+        return null;
+    }
+
+    let array = new Array(matrix.length);
+
+    let max;
+
+    for (let i = 0; i < matrix.length; i++){
+        max = matrix[0][0];
+
+        for (let j = 0; j < matrix[i].length; j++) {
+
+            if (matrix[j][i] > max) {
+                max = matrix[j][i];
+            }
+
+        }
+
+        array[i] = max;
+    }
+
+    return array;
+};
+
+const getPositiveAndNegativeArrays = array => {
+
+    if (array === undefined || !array.length) {
+        return null;
+    }
+
+    let positive = [], negative = [];
+
+    for (let i = 0; i < array.length; i++) {
+
+        if (array[i] > 0) {
+            positive = pushElem(positive, array[i]);
+        }
+        else if (array[i] < 0) {
+            negative = pushElem(negative, array[i]);
+        }
+
+    }
+    return {
+        positive: positive,
+        negative: negative
+    };
+};
+
+const countSimpleArrayNumbers = array => {
+
+    if (array === undefined || !array.length) {
+        return null;
+    }
+
+    let count = 0;
+
+    let anotherCount = 0;
+
+    for (let i = 0; i < array.length; i++) {
+
+        for (let j = 2; j < array[i] / 2; j++) {
+
+            if (array[i] % j === 0) {
                 anotherCount++;
             }
+
         }
-        if(anotherCount===0 && array[i]!==1) count++;
-        anotherCount=0;
+
+        if (anotherCount === 0 && array[i] !== 1) {
+            count++;
+        }
+
+        anotherCount = 0;
     }
+
     return count;
 };

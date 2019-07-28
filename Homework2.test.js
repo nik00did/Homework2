@@ -1068,4 +1068,459 @@ describe('Homework2', () => {
             });
         });
     });
+
+    describe('arrayQuickSort', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1],
+                expected: [1]
+            },
+            {
+                array: [1, 2],
+                expected: [2, 1]
+            },
+            {
+                array: [1, 2, 3],
+                expected: [3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4],
+                expected: [4, 3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+            },
+            {
+                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
+                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
+            },
+            {
+                array: [5, 4, 3, 2, 1],
+                expected: [5, 4, 3, 2, 1]
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = arrayQuickSort(array);
+
+            it(`Should return [${expected}] when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('arrayShellSort', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1],
+                expected: [1]
+            },
+            {
+                array: [1, 2],
+                expected: [2, 1]
+            },
+            {
+                array: [1, 2, 3],
+                expected: [3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4],
+                expected: [4, 3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+            },
+            {
+                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
+                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
+            },
+            {
+                array: [5, 4, 3, 2, 1],
+                expected: [5, 4, 3, 2, 1]
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = arrayShellSort(array);
+
+            it(`Should return [${expected}] when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('arrayHeapSort', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1],
+                expected: [1]
+            },
+            {
+                array: [1, 2],
+                expected: [2, 1]
+            },
+            {
+                array: [1, 2, 3],
+                expected: [3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4],
+                expected: [4, 3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+            },
+            {
+                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
+                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
+            },
+            {
+                array: [5, 4, 3, 2, 1],
+                expected: [5, 4, 3, 2, 1]
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = arrayHeapSort(array);
+
+            it(`Should return [${expected}] when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('arrayMergeSort', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1],
+                expected: [1]
+            },
+            {
+                array: [1, 2],
+                expected: [2, 1]
+            },
+            {
+                array: [1, 2, 3],
+                expected: [3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4],
+                expected: [4, 3, 2, 1]
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
+            },
+            {
+                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
+                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
+            },
+            {
+                array: [5, 4, 3, 2, 1],
+                expected: [5, 4, 3, 2, 1]
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = arrayMergeSort(array);
+
+            it(`Should return [${expected}] when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+    describe('getDayName', () => {
+        const testData = [
+            {
+                number: 0,
+                expected: 'Wrong number!'
+            },
+            {
+                number: 1,
+                expected: 'Monday'
+            },
+            {
+                number: 2,
+                expected: 'Tuesday'
+            },
+            {
+                number: 7,
+                expected: 'Sunday'
+            },
+            {
+                number: 8,
+                expected: 'Wrong number!'
+            }
+        ];
+
+        testData.forEach(data => {
+            const {number, expected} = data;
+
+            const actual = getDayName(number);
+
+            it(`Should return ${expected} when number = ${number}`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+    describe('getDistanceBetweenTwoPoints', () => {
+        const testData = [
+            {
+                startPoint: {
+                    x: 0,
+                    y: 0
+                },
+                finishPoint: {
+                    x: 0,
+                    y: 0
+                },
+                expected: 0
+            },
+            {
+                startPoint: {
+                    x: 1,
+                    y: 0
+                },
+                finishPoint: {
+                    x: 2,
+                    y: 0
+                },
+                expected: 1
+            },
+            {
+                startPoint: {
+                    x: 0,
+                    y: 10
+                },
+                finishPoint: {
+                    x: 2,
+                    y: 8
+                },
+                expected: 2
+            }
+        ];
+
+        testData.forEach(data => {
+            const  {startPoint, finishPoint, expected} = data;
+
+            const actual = getDistanceBetweenTwoPoints(startPoint, finishPoint);
+
+            it(`Should return ${expected} when startPoint = {${startPoint}} and finishPoint = {${finishPoint}`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('getTwoMinElem', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = getTwoMinElem(array);
+
+            it(`Should return [${expected}] when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('getAverageArray', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1, 2, 3],
+                expected: 2
+            },
+            {
+                array: [9],
+                expected: 9
+            },
+            {
+                array: [5, 10, 15, 20, 0],
+                expected: 10
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6, 7, 8],
+                expected: 4.5
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = getAverageArray(array);
+
+            it(`Should return ${expected} when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('getMaxColumnMatrix', () => {
+        const testData = [
+            {
+                matrix: [],
+                expected: null
+            },
+            {
+                matrix: [[],
+                         []],
+                expected: []
+            },
+            {
+                matrix: [[1, 2],
+                         [3, 4]],
+                expected: [3, 4]
+            },
+            {
+                matrix: [[1, 2, 9],
+                         [4, 8, 6],
+                         [7, 5, 3]],
+                expected: [7, 8, 9]
+            },
+            {
+                matrix: [[1, 2, 3, 4],
+                         [5, 6, 7, 0],
+                         [1, 3, 5, 7],
+                         [9, 7, 5, 3]],
+                expected: [9, 7, 7, 7]
+            },
+        ];
+
+        testData.forEach(data => {
+            const {matrix, expected} = data;
+
+            const actual = getMaxColumnMatrix(matrix);
+
+            it(`Should return [${expected}] when matrix = [${matrix}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('getPositiveAndNegativeArrays', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1, 2, 3, -1, -2, -3],
+                expected: {
+                    positive: [1, 2, 3],
+                    negative: [-1, -2, -3]
+                }
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6],
+                expected: {
+                    positive: [1, 2, 3, 4, 5, 6],
+                    negative: []
+                }
+            },
+            {
+                array: [-1, 2, -3, 4, -5, 6],
+                expected: {
+                    positive: [2, 4, 6],
+                    negative: [-1, -3, -5]
+                }
+            },
+            {
+                array: [1, 2, -11, 3, -10, 4, -9, 5, -8, 6, -7],
+                expected: {
+                    positive: [1, 2, 3, 4, 5, 6],
+                    negative: [ -11, -10, -9, -8, -7]
+                }
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = getPositiveAndNegativeArrays(array);
+
+            it(`Should return {${expected} when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
+
+    describe('countSimpleArrayNumbers', () => {
+        const testData = [
+            {
+                array: [],
+                expected: null
+            },
+            {
+                array: [1, 2, 3, 4, 5, 6],
+                expected: 4
+            },
+            {
+                array: [2],
+                expected: 1
+            },
+            {
+                array: [4, 8, 9],
+                expected: 0
+            },
+            {
+                array: [1, 3, 7, 4, 0, 8],
+                expected: 3
+            },
+            {
+                array: [0],
+                expected: 0
+            },
+            {
+                array: [113, 444, 3, -5, 7, 8, 43, 33],
+                expected: 4
+            }
+        ];
+
+        testData.forEach(data => {
+            const {array, expected} = data;
+
+            const actual = countSimpleArrayNumbers(array);
+
+            it(`Should return ${expected} when array = [${array}]`, () => {
+                assert.strictEqual(actual, expected);
+            });
+        });
+    });
 });
