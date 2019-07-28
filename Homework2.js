@@ -27,16 +27,16 @@ const getQuarter = (x, y) => {
 };
 
 const getOnlyPositiveSum = (a, b, c) => {
-    let result=0;
+    let result = 0;
 
-    if (a>0) {
-        result+=a;
+    if (a > 0) {
+        result += a;
     }
-    if (b>0) {
-        result+=b;
+    if (b > 0) {
+        result += b;
     }
-    if (c>0) {
-        result+=c;
+    if (c > 0) {
+        result += c;
     }
 
     return result;
@@ -74,7 +74,7 @@ const isSimple = number => {
         return false;
     }
 
-    for (let  i = 2; i < number / 2; i++) {
+    for (let i = 2; i < number / 2; i++) {
         if (number % i === 0){
             return false;
         }
@@ -110,7 +110,7 @@ const getSqrtBinarySearch = number => {
     if (number === 0) {
         return 0;
     } else if (number < 0) {
-        throw new Error("Negative number!");
+        return "Negative number input!";
     }
 
     let left = 0;
@@ -163,7 +163,7 @@ const reverseNumber = number => {
     do {
         power = 1;
 
-        for (let t = number / 10;t >= 1; t /= 10) {
+        for (let t = number / 10; t >= 1; t /= 10) {
             power *= 10;
         }
 
@@ -174,101 +174,183 @@ const reverseNumber = number => {
 
     return newNum;
 };
-//----------------------------------------------------------------------------------------------------------
-                                            //TO BE CONTINUED
-//----------------------------------------------------------------------------------------------------------
 
-//array
-//1
-const findMinElem = array => {
-    let min=Infinity;
-    for(let i=0; i<array.length; i++) if(array[i]<min) min=array[i];
+const findMinElemArray = array => {
+
+    if (array === undefined || ! array.length)  {
+        return null;
+    }
+
+    let min = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+
     return min;
-}
-//2
-const findMaxElem = array => {
-    let max=-Infinity;
-    for(let i=0;i<array.length;i++) if(array[i]>max) max=array[i];
+};
+
+const findMaxElemArray = array => {
+
+    if (array === undefined || ! array.length)  {
+        return null;
+    }
+
+    let max = array[0];
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+
     return max;
-}
-//3
-const findIndexOfMinElem = array => {
-    let min=Infinity;
-    let minIndex=0;
-    for(let i=0; i<array.length; i++){
-        if(array[i]<min){
-            min=array[i];
-            minIndex=i;
+};
+
+const findIndexOfMinElemArray = array => {
+
+    if (array === undefined || ! array.length)  {
+        return null;
+    }
+
+    let min = array[0];
+
+    let minIndex = 0;
+
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+            minIndex = i;
         }
     }
+
     return minIndex;
-}
-//4
-const findIndexOfMaxElem = array => {
-    let max=-Infinity;
-    let maxIndex=0;
-    for(let i=0;i<array.length;i++){
-        if(array[i]>max){
-            max=array[i];
-            maxIndex=i;
+};
+
+const findIndexOfMaxElemArray = array => {
+
+    if (array === undefined || ! array.length)  {
+        return null;
+    }
+
+    let max = array[0];
+
+    let maxIndex = 0;
+
+    for (let i = 1;i <array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+            maxIndex = i;
         }
     }
+
     return maxIndex;
 };
-//5
-const sumOddElem = array => {
-    let sum=0;
-    for(let i=1; i<array.length;i+=2) sum+=array[i];
+
+const sumOddElemArray = array => {
+
+    if (array === undefined || ! array.length || array.length<2) {
+        return null;
+    }
+
+    let sum = 0;
+
+    for (let i = 1; i < array.length; i += 2) {
+        sum += array[i];
+    }
+
     return sum;
 };
-//6
-//console.log([1,2,3,4,5,6,7].reverse());
-const reverseOfArray = array => {
-    for(let i=0, j=array.length-1;i<array.length/2, j>array.length/2;i++,j--){
-        let temp=array[i];
-        array[i]=array[j];
-        array[j]=temp;
+
+const reverseArray = array => {
+
+    if (array === undefined || ! array.length) {
+        return null;
     }
+
+    for (let i = 0, j = array.length - 1; i < array.length / 2, j > array.length / 2; i++, j--) {
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
     return array;
 };
-//7
-const amountOddElem = array => {
+
+const amountOddElemArray = array => {
+
+    if (array === undefined || ! array.length || array.length<2) {
+        return null;
+    }
+
     let amount=0;
-    for(let i=1;i<array.length;i+=2) array++;
+
+    for (let i = 1; i < array.length; i += 2) {
+        array++;
+    }
+
     return amount;
 };
-//8
-const changeHalfArray = array => {
-    for(let i=0, j=array.length/2+(array.length/2)%1;j<array.length,i<array.length/2-(array.length/2)%1;j++,i++){
-        let temp=array[i];
-        array[i]=array[j];
-        array[j]=temp;
+
+const swapHalfArray = array => {
+
+    if (array === undefined || ! array.length) {
+        return null;
     }
+
+    for (let i = 0, j = array.length / 2 + (array.length / 2) % 1; j < array.length, i < array.length / 2 - (array.length / 2) % 1; j++, i++) {
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+
     return array;
 };
-//9
+
 const arrayBubbleSort = array => {
-    for(let i=0;i<array.length-1;i++){
-        for(let j=0;j<array.length;j++){
-            if(array[j]<array[j+1]){
-                let temp=array[j];
-                array[j]=array[j+1];
-                array[j+1]=temp;
+
+    if (array === undefined || ! array.length) {
+        return null;
+    }
+
+    for (let i = 0; i < array.length - 1; i++) {
+        for (let j = i; j < array.length; j++) {
+            if (array[j] < array[j + 1]) {
+                let temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
             }
         }
     }
+
     return array;
 };
 //descending
 const arrayInsertSort = array => {
-    for(let i=0;i<array.length;i++){
-        let item=array[i];
-        let j=i;
-        for(;j>0 && array[j-1]<item;j--) array[j]=array[j-1];
-        array[j]=item;
+
+    if (array === undefined || ! array.length) {
+        return null;
     }
+
+    for (let i = 0; i < array.length; i++) {
+        let item = array[i];
+
+        let j = i;
+
+        for(; j > 0 && array[j - 1] < item; j--) {
+            array[j] = array[j - 1];
+        }
+
+        array[j] = item;
+    }
+
     return array;
 };
+//----------------------------------------------------------------------------------------------------------
+//                                      TO BE CONTINUED
+//----------------------------------------------------------------------------------------------------------
 //10
 //quick sort--------------------------------------------------------------
 const part = (array, left, right) => {
@@ -336,7 +418,7 @@ const heapBranch = (array, i) => {
     let max=i;
     if (left<len && array[left]>array[max]) max=left;
     if (right<len && array[right]>array[max]) max=right;
-    if (max!=i) {
+    if (max!==i) {
         let temp=array[i];
         array[i]=array[max];
         array[max]=temp;
