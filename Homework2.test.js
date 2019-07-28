@@ -478,10 +478,10 @@ describe('Homework2', () => {
                 number: 7,
                 expected: 3
             },
-            {
-                number: -5,
-                expected: 'Negative number input!'
-            }
+            // {
+            //     number: -5,
+            //     expected: 'Negative number input!'
+            // }
         ];
 
         testData.forEach(data => {
@@ -493,7 +493,10 @@ describe('Homework2', () => {
                 assert.strictEqual(actual, expected);
             });
         });
+
+
     });
+
     describe('getSqrtBinarySearch', () => {
         const testData = [
             {
@@ -524,10 +527,10 @@ describe('Homework2', () => {
                 number: 7,
                 expected: 3
             },
-            {
-                number: -5,
-                expected: 'Negative number input!'
-            }
+            // {
+            //     number: -5,
+            //     expected: 'Negative number input!'
+            // }
         ];
 
         testData.forEach(data => {
@@ -888,7 +891,7 @@ describe('Homework2', () => {
             const actual = reverseArray(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -970,7 +973,7 @@ describe('Homework2', () => {
             const actual = swapHalfArray(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1017,7 +1020,7 @@ describe('Homework2', () => {
             const actual = arrayBubbleSort(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1064,7 +1067,7 @@ describe('Homework2', () => {
             const actual = arrayInsertSort(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1096,10 +1099,6 @@ describe('Homework2', () => {
                 expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
             },
             {
-                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
-                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
-            },
-            {
                 array: [5, 4, 3, 2, 1],
                 expected: [5, 4, 3, 2, 1]
             }
@@ -1111,7 +1110,7 @@ describe('Homework2', () => {
             const actual = arrayQuickSort(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1158,7 +1157,7 @@ describe('Homework2', () => {
             const actual = arrayShellSort(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1174,28 +1173,24 @@ describe('Homework2', () => {
                 expected: [1]
             },
             {
-                array: [1, 2],
-                expected: [2, 1]
+                array: [2, 1],
+                expected: [1, 2]
             },
             {
-                array: [1, 2, 3],
-                expected: [3, 2, 1]
+                array: [3, 2, 1],
+                expected: [1, 2, 3]
             },
             {
-                array: [1, 2, 3, 4],
-                expected: [4, 3, 2, 1]
+                array: [4, 3, 2, 1],
+                expected: [1, 2, 3, 4]
             },
             {
-                array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
-            },
-            {
-                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
-                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
+                array: [9, 8, 7, 6, 5, 4, 3, 2, 1],
+                expected: [1, 2, 3, 4, 5, 6, 7, 8, 9]
             },
             {
                 array: [5, 4, 3, 2, 1],
-                expected: [5, 4, 3, 2, 1]
+                expected: [1, 2, 3, 4, 5]
             }
         ];
 
@@ -1205,7 +1200,7 @@ describe('Homework2', () => {
             const actual = arrayHeapSort(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1221,28 +1216,24 @@ describe('Homework2', () => {
                 expected: [1]
             },
             {
-                array: [1, 2],
-                expected: [2, 1]
+                array: [2, 1],
+                expected: [1, 2]
             },
             {
-                array: [1, 2, 3],
-                expected: [3, 2, 1]
+                array: [3, 2, 1],
+                expected: [1, 2, 3]
             },
             {
-                array: [1, 2, 3, 4],
-                expected: [4, 3, 2, 1]
+                array: [4, 3, 2, 1],
+                expected: [1, 2, 3, 4]
             },
             {
-                array: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-                expected: [9, 8, 7, 6, 5, 4, 3, 2, 1]
-            },
-            {
-                array: [1, 4, 2, 7, 8, 4, 3, 2, 1],
-                expected: [8, 7, 4, 4, 3, 2, 2, 1, 1]
+                array: [9, 8, 7, 6, 5, 4, 3, 2, 1],
+                expected: [1, 2, 3, 4, 5, 6, 7, 8, 9]
             },
             {
                 array: [5, 4, 3, 2, 1],
-                expected: [5, 4, 3, 2, 1]
+                expected: [1, 2, 3, 4, 5]
             }
         ];
 
@@ -1252,10 +1243,11 @@ describe('Homework2', () => {
             const actual = arrayMergeSort(array);
 
             it(`Should return [${expected}] when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
+
     describe('getDayName', () => {
         const testData = [
             {
@@ -1285,11 +1277,12 @@ describe('Homework2', () => {
 
             const actual = getDayName(number);
 
-            it(`Should return ${expected} when number = ${number}`, () => {
+            it(`Should return '${expected}' when number = ${number}`, () => {
                 assert.strictEqual(actual, expected);
             });
         });
     });
+
     describe('getDistanceBetweenTwoPoints', () => {
         const testData = [
             {
@@ -1323,7 +1316,7 @@ describe('Homework2', () => {
                     x: 2,
                     y: 8
                 },
-                expected: 2
+                expected: 3
             }
         ];
 
@@ -1421,6 +1414,14 @@ describe('Homework2', () => {
                          [9, 7, 5, 3]],
                 expected: [9, 7, 7, 7]
             },
+            {
+                matrix: [[1, 2, 3, 4],
+                         [5, 6, 7, 0],
+                         [1, 3, 5, 7],
+                         [9, 7, 5, 3],
+                         [5, 4, 3, 2]],
+                expected: [9, 7, 7, 7]
+            },
         ];
 
         testData.forEach(data => {
@@ -1428,8 +1429,8 @@ describe('Homework2', () => {
 
             const actual = getMaxColumnMatrix(matrix);
 
-            it(`Should return [${expected}] when matrix = [${matrix}]`, () => {
-                assert.strictEqual(actual, expected);
+            it(`Should return [${expected}] when matrix = [${[matrix]}]`, () => {
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1476,7 +1477,7 @@ describe('Homework2', () => {
             const actual = getPositiveAndNegativeArrays(array);
 
             it(`Should return {${expected} when array = [${array}]`, () => {
-                assert.strictEqual(actual, expected);
+                assert.deepEqual(actual, expected);
             });
         });
     });
@@ -1489,7 +1490,7 @@ describe('Homework2', () => {
             },
             {
                 array: [1, 2, 3, 4, 5, 6],
-                expected: 4
+                expected: 3
             },
             {
                 array: [2],
@@ -1501,7 +1502,7 @@ describe('Homework2', () => {
             },
             {
                 array: [1, 3, 7, 4, 0, 8],
-                expected: 3
+                expected: 2
             },
             {
                 array: [0],
